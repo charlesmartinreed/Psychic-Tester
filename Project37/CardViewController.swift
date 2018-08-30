@@ -45,6 +45,34 @@ class CardViewController: UIViewController {
             self.back.alpha = 1
         }
         
+        //using a gesture recognizer to "feel" the star
+        let tap = UITapGestureRecognizer(target: self, action: #selector(cardTapped))
+        back.isUserInteractionEnabled = true
+        back.addGestureRecognizer(tap)
+        
+    }
+    
+    //MARK: - Tap functions
+    @objc func cardTapped() {
+        //we pass this to the delegate, i.e, parent view controller, to prevent users from tapping on two cards at once and causing problems
+        delegate.cardTapped(self)
+    }
+    
+    @objc func wasntTapped() {
+        UIView.animate(withDuration: 0.7) {
+            //zoom down and fade away over 0.7 seconds
+            self.view.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
+            self.view.alpha = 0
+        }
+    }
+    
+    @objc func wasTapped() {
+        //using transition(with:) to flip the card and then "swap" the images by hiding back and unhiding the front.
+        UIView.transition(with: view, duration: 0.7, options: [.transitionFlipFromRight], animations: {
+                [unowned self] in
+                self.back.isHidden = true
+                self.front.isHidden = false
+        }, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

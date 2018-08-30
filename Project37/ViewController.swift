@@ -24,8 +24,12 @@ class ViewController: UIViewController {
         
     }
     
+    //MARK:- Card functions
     @objc func loadCards() {
         //we'll use addChildViewController and didMove(toParentViewController:) to place view controllers within one another. This is called VIEW CONTROLLER CONTAINMENT.
+        
+        //renable user interaction - it is disabled in our cardTapped function
+        view.isUserInteractionEnabled = true
         
         //begin by clearing out the old cards
         for card in allCards {
@@ -86,6 +90,28 @@ class ViewController: UIViewController {
 
             
         }
+    }
+    
+    //MARK:- Tap functions
+    func cardTapped(_ tapped: CardViewController) {
+        //ensure that only one card can be tapped at a time by checking that something was tapped and then disabling anything else from being tapped.
+        //perform is inherited from NSObject, allows us to easily call a method after delay OR in the background
+        guard view.isUserInteractionEnabled == true else { return }
+        view.isUserInteractionEnabled = false
+        
+        //loop through all cards in the allCards array
+        for card in allCards {
+            if card == tapped {
+                //when tapped card is found, animate it to flip over, then fade away.
+                card.wasTapped()
+                card.perform(#selector(card.wasntTapped), with: nil, afterDelay: 1)
+            } else {
+                //animate all untapped cards to simply fade away
+                card.wasntTapped()
+            }
+        }
+        //reset game after two second to make more cards appear
+        perform(#selector(loadCards), with: nil, afterDelay: 2)
     }
 
 
