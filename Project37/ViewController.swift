@@ -10,6 +10,7 @@ import UIKit
 import GameplayKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var gradientView: GradientView!
     
     //MARK:- Properites
     //will hold all the card views
@@ -20,6 +21,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        createParticles()
+        
         loadCards()
         
         //animating the background color - giving it an initial color to smooth out the animation
@@ -28,6 +31,39 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 20, delay: 0, options: [.allowUserInteraction, .autoreverse, .repeat], animations: {
                 self.view.backgroundColor = UIColor.blue
         }, completion: nil)
+        
+    }
+    
+    //MARK:- Particle emission
+    func createParticles() {
+        //create the emitter layer object, provided by Core Animation
+        let particleEmitter = CAEmitterLayer()
+        
+        //constructing the emitter
+        particleEmitter.emitterPosition = CGPoint(x: view.frame.width / 2.0, y: -50)
+        particleEmitter.emitterShape = kCAEmitterLayerLine
+        particleEmitter.emitterSize = CGSize(width: view.frame.width, height: 1)
+        particleEmitter.renderMode = kCAEmitterLayerAdditive
+        
+        //constructing the particles
+        let cell = CAEmitterCell()
+        cell.birthRate = 2
+        cell.lifetime = 5.0
+        cell.velocity = 100
+        cell.velocityRange = 50
+        cell.emissionLongitude = .pi
+        cell.spinRange = 5
+        cell.scale = 0.5
+        cell.scaleRange = 0.25
+        cell.color = UIColor(white: 1, alpha: 0.1).cgColor
+        cell.alphaSpeed = -0.025
+        cell.contents = UIImage(named: "particle")?.cgImage
+        
+        particleEmitter.emitterCells = [cell]
+        
+        //this ensures that the particles always go behind the cards
+        gradientView.layer.addSublayer(particleEmitter)
+        
         
     }
     
