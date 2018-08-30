@@ -135,6 +135,29 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK:- 3D touch cheater method
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        
+        guard let touch = touches.first else { return }
+        
+        //find where the user's touch was located
+        let location = touch.location(in: cardContainer)
+        
+        for card in allCards {
+            //loop through cards to find which one, if any, is located at touch point
+            if card.view.frame.contains(location) {
+                //if there is a card there, if 3D touch is available, if the user presses hard enough, enable the cheat by setting isCorrect to true and changing image to a star
+                if view.traitCollection.forceTouchCapability == .available {
+                    if touch.force == touch.maximumPossibleForce {
+                        card.front.image = UIImage(named: "cardStar")
+                        card.isCorrect = true
+                    }
+                }
+            }
+        }
+    }
+    
     //MARK:- Tap functions
     func cardTapped(_ tapped: CardViewController) {
         //ensure that only one card can be tapped at a time by checking that something was tapped and then disabling anything else from being tapped.
