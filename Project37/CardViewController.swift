@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GameplayKit
+import AVFoundation
 
 class CardViewController: UIViewController {
     
@@ -20,6 +22,9 @@ class CardViewController: UIViewController {
     
     //did the player choose the right card?
     var isCorrect = false
+    
+    //background music
+    var music: AVAudioPlayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +55,12 @@ class CardViewController: UIViewController {
         back.isUserInteractionEnabled = true
         back.addGestureRecognizer(tap)
         
+        //call the wiggle distraction method
+        perform(#selector(wiggle), with: nil, afterDelay: 1)
+        
+        //play our background music
+        playMusic()
+        
     }
     
     //MARK: - Tap functions
@@ -75,9 +86,32 @@ class CardViewController: UIViewController {
         }, completion: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //MARK:- Misdirection methods
+    @objc func wiggle() {
+        //for a random view, scale an image by 1% and then scale it back
+        //the wiggle method continues indefinitely after the initial call because it calls itself
+        if GKRandomSource.sharedRandom().nextInt(upperBound: 4) == 1 {
+            UIView.animate(withDuration: 0.2, delay: 0, options: .allowUserInteraction, animations: {
+                self.back.transform = CGAffineTransform(scaleX: 1.01, y: 1.01)
+            }) { _ in
+                self.back.transform = CGAffineTransform.identity
+            }
+            //staggered the performs so that if a card has moved, the delay is much longer
+            perform(#selector(wiggle), with: nil, afterDelay: 8)
+        } else {
+            perform(#selector(wiggle), with: nil, afterDelay: 2)
+        }
+    }
+    
+    func playMusic() {
+        if let musicURL = Bundle.main.url(forResource: "PhantomFromSpace", withExtension: "mp3") {
+            if let audioPlayer = try? AVAudioPlayer(contentsOf: musicURL) {
+                music = audioPlayer
+                //set the music to loop by using any negative number
+                music.numberOfLoops = -1
+                music.play()
+            }
+        }
     }
     
 
