@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C053A282138877A0086D222 /* PhantomFromSpace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C053A262138877A0086D222 /* PhantomFromSpace.mp3 */; };
+		8C053A292138877A0086D222 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8C053A272138877A0086D222 /* README.txt */; };
+		8C053A2B213888D10086D222 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C053A2A213888D10086D222 /* CardViewController.swift */; };
 		8C13386E213744900002175C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C13386D213744900002175C /* AppDelegate.swift */; };
 		8C133870213744900002175C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C13386F213744900002175C /* ViewController.swift */; };
 		8C133873213744900002175C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C133871213744900002175C /* Main.storyboard */; };
@@ -64,6 +67,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8C053A262138877A0086D222 /* PhantomFromSpace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PhantomFromSpace.mp3; sourceTree = "<group>"; };
+		8C053A272138877A0086D222 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		8C053A2A213888D10086D222 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		8C13386A213744900002175C /* Project37.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project37.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C13386D213744900002175C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C13386F213744900002175C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C053A252138877A0086D222 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				8C053A262138877A0086D222 /* PhantomFromSpace.mp3 */,
+				8C053A272138877A0086D222 /* README.txt */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
 		8C133861213744900002175C = {
 			isa = PBXGroup;
 			children = (
@@ -125,8 +140,10 @@
 			children = (
 				8C13386D213744900002175C /* AppDelegate.swift */,
 				8C13386F213744900002175C /* ViewController.swift */,
+				8C053A2A213888D10086D222 /* CardViewController.swift */,
 				8C133871213744900002175C /* Main.storyboard */,
 				8C133874213744920002175C /* Assets.xcassets */,
+				8C053A252138877A0086D222 /* Content */,
 				8C133876213744920002175C /* LaunchScreen.storyboard */,
 				8C133879213744920002175C /* Info.plist */,
 			);
@@ -257,8 +274,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C133878213744920002175C /* LaunchScreen.storyboard in Resources */,
+				8C053A282138877A0086D222 /* PhantomFromSpace.mp3 in Resources */,
 				8C133875213744920002175C /* Assets.xcassets in Resources */,
 				8C133873213744900002175C /* Main.storyboard in Resources */,
+				8C053A292138877A0086D222 /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +307,7 @@
 			files = (
 				8C133870213744900002175C /* ViewController.swift in Sources */,
 				8C13386E213744900002175C /* AppDelegate.swift in Sources */,
+				8C053A2B213888D10086D222 /* CardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +568,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlesmartinreed.Project37;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -565,7 +585,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.charlesmartinreed.Project37;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
