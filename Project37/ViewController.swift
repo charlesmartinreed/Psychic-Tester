@@ -22,6 +22,13 @@ class ViewController: UIViewController {
         
         loadCards()
         
+        //animating the background color - giving it an initial color to smooth out the animation
+        view.backgroundColor = UIColor.red
+        
+        UIView.animate(withDuration: 20, delay: 0, options: [.allowUserInteraction, .autoreverse, .repeat], animations: {
+                self.view.backgroundColor = UIColor.blue
+        }, completion: nil)
+        
     }
     
     //MARK:- Card functions

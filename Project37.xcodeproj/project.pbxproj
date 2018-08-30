@@ -10,6 +10,7 @@
 		8C053A282138877A0086D222 /* PhantomFromSpace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C053A262138877A0086D222 /* PhantomFromSpace.mp3 */; };
 		8C053A292138877A0086D222 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8C053A272138877A0086D222 /* README.txt */; };
 		8C053A2B213888D10086D222 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C053A2A213888D10086D222 /* CardViewController.swift */; };
+		8C053A2D21389D4C0086D222 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C053A2C21389D4C0086D222 /* GradientView.swift */; };
 		8C13386E213744900002175C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C13386D213744900002175C /* AppDelegate.swift */; };
 		8C133870213744900002175C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C13386F213744900002175C /* ViewController.swift */; };
 		8C133873213744900002175C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C133871213744900002175C /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 		8C053A262138877A0086D222 /* PhantomFromSpace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = PhantomFromSpace.mp3; sourceTree = "<group>"; };
 		8C053A272138877A0086D222 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		8C053A2A213888D10086D222 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		8C053A2C21389D4C0086D222 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		8C13386A213744900002175C /* Project37.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project37.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C13386D213744900002175C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C13386F213744900002175C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				8C13386D213744900002175C /* AppDelegate.swift */,
 				8C13386F213744900002175C /* ViewController.swift */,
 				8C053A2A213888D10086D222 /* CardViewController.swift */,
+				8C053A2C21389D4C0086D222 /* GradientView.swift */,
 				8C133871213744900002175C /* Main.storyboard */,
 				8C133874213744920002175C /* Assets.xcassets */,
 				8C053A252138877A0086D222 /* Content */,
@@ -307,6 +310,7 @@
 			files = (
 				8C133870213744900002175C /* ViewController.swift in Sources */,
 				8C13386E213744900002175C /* AppDelegate.swift in Sources */,
+				8C053A2D21389D4C0086D222 /* GradientView.swift in Sources */,
 				8C053A2B213888D10086D222 /* CardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
